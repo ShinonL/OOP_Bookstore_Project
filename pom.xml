@@ -11,7 +11,7 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
-  <groupId>main</groupId>
+  <groupId>ApplicationModule.Core</groupId>
   <artifactId>Bookstore</artifactId>
   <version>1.0-SNAPSHOT</version>
 
