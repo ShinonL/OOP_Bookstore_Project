@@ -1,7 +1,8 @@
 package api.bookstore.view;
 
-//dimensiune 1600x1200
 public class MyAccount extends AppFrame {
+    //dimensiune 1600 x 1200
+
     @Override
     public void initialize() {
 
