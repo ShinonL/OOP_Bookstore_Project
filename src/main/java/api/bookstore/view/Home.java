@@ -1,30 +1,26 @@
 package api.bookstore.view;
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
-import api.bookstore.controller.Master;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
-
 @Component
-public class Home{
+public class Home extends AppFrame{
 
-    private JTextField personFullNameTextField;
-    private JTextField personPhoneTextField;
-    private JButton  savePersonButton;
-
+    @Override
     public void initialize() {
-        Master.masterPanel.setLayout(null);
+        this.setTitle("Agenda");
+        this.setSize(400, 400);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLayout(null);
 
-        JLabel newLabel = new JLabel("Home");
-        newLabel.setBounds(10, 80, 200, 30);
-        Master.masterPanel.add(newLabel);
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
 
+        panel = NavigationBar.navBar(panel, this);
+
+        this.setContentPane(panel);
+        this.setVisible(true);
     }
 
 }

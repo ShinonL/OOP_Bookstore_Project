@@ -1,10 +1,10 @@
 package api.bookstore;
 
-import api.bookstore.controller.Master;
 import api.bookstore.view.Home;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+
 @SpringBootApplication
 public class Application {
 
@@ -13,8 +13,8 @@ public class Application {
         builder.headless(false);
         ConfigurableApplicationContext context = builder.run(args);
 
-        Master masterPage = context.getBean(Master.class);
-        masterPage.initialize();
+        Home homePage = context.getBean(Home.class);
+        homePage.initialize();
     }
 
 }

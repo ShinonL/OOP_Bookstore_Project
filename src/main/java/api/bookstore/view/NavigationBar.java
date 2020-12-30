@@ -1,36 +1,59 @@
 package api.bookstore.view;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import api.bookstore.controller.Master;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class NavigationBar {
 
-    public static JPanel navBar(JPanel myPanel) {
-        JButton dummyButton = new JButton("Home");
-        dummyButton.setBounds(10, 10, 120, 30);
-        JButton dummyButton2 = new JButton("AboutUS");
-        dummyButton2.setBounds(10, 45, 120, 30);
+    public static JPanel navBar(JPanel myPanel, AppFrame prevFrame) {
 
-        dummyButton.addActionListener(e -> {
+        JButton homeButton = new JButton("Home");
+        homeButton.setBounds(10, 10, 120, 30);
+        homeButton.addActionListener(e -> {
             Home myHome = new Home();
             myHome.initialize();
+            myHome.setVisible(true);
+            prevFrame.setVisible(false);
         });
-        dummyButton2.addActionListener(e -> {
-            System.out.println("hei");
+        myPanel.add(homeButton);
+
+
+        JButton aboutUsButton = new JButton("AboutUS");
+        aboutUsButton.setBounds(10, 45, 120, 30);
+        aboutUsButton.addActionListener(e -> {
             AboutUs aboutUs = new AboutUs();
             aboutUs.initialize();
+            aboutUs.setVisible(true);
+            prevFrame.setVisible(false);
         });
+        myPanel.add(aboutUsButton);
 
 
-        myPanel.add(dummyButton);
-        myPanel.add(dummyButton2);
+        JButton myAccountButton = new JButton("My Account");
+        myAccountButton.setBounds(10, 105, 120, 30);
+        myAccountButton.addActionListener(e -> {
+            MyAccount myAccount = new MyAccount();
+            myAccount.initialize();
+            myAccount.setVisible(true);
+            prevFrame.setVisible(false);
+        });
+        myPanel.add(myAccountButton);
+
+
+        JButton categoryButton = new JButton("Categories");
+        categoryButton.setBounds(10, 135, 120, 30);
+        categoryButton.addActionListener(e -> {
+            Category category = new Category();
+            category.initialize();
+            category.setVisible(true);
+            prevFrame.setVisible(false);
+        });
+        myPanel.add(categoryButton);
+
+
 
         return myPanel;
     }
