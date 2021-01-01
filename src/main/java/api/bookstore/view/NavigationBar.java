@@ -1,6 +1,7 @@
 package api.bookstore.view;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,7 @@ public class NavigationBar {
         panelInside.setBounds(prevFrame.getSize().width/8,0,
                 3*prevFrame.getSize().width/4,prevFrame.getBounds().height/20+20);
         panelInside.setBackground(new Color(225, 198, 153));
+
         JButton homeButton = new JButton("Home");
         homeButton.setBounds(panelInside.getBounds().width/6, 10, panelInside.getBounds().width/6-10, panelInside.getBounds().height-20);
         homeButton.addActionListener(e -> {
@@ -35,7 +37,7 @@ public class NavigationBar {
         });
         panelInside.add(categoryButton);
 
-        JButton aboutUsButton = new JButton("AboutUS");
+        JButton aboutUsButton = new JButton("About Us");
         aboutUsButton.setBounds(3*panelInside.getBounds().width/6, 10, panelInside.getBounds().width/6-10, panelInside.getBounds().height-20);
         aboutUsButton.addActionListener(e -> {
             AboutUs aboutUs = new AboutUs();
