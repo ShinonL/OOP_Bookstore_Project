@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        {% if error is defined %}
+            <h3 style="color: #adcce9">{{ error }}</h3>
+        {% endif %}
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <a> <h2 class="active"> Sign In </h2></a>
+            <a href="{{ path('app_register') }}"><h2 class="inactive underlineHover">Sign Up </h2></a>
+                    <!-- Login Form -->
+            <form action="{{ path('app_login') }}?action=validate" method="post">
+                <input type="text" id="login" class="fadeIn second" name="user" placeholder="username" required>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            </form>
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="{{ path('app_register') }}">New User?</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

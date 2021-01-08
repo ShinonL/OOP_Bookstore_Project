@@ -1,0 +1,98 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head >
+        <meta charset="utf-8">
+        <th:block th:fragment="base_css">
+            <link rel="stylesheet" th:href="@{/css/base.css}" media="screen">
+            <link rel="stylesheet" th:href="@{/css/base1.css}" media="screen">
+            <script class="u-script" type="text/javascript" th:src="@{/js/base1.js}" defer=""></script>
+            <script class="u-script" type="text/javascript" th:src="@{/js/base.js}" defer=""></script>
+        </th:block>
+    </head>
+    <body data-home-page="Page-1.html" data-home-page-title="Page 1" class="u-body">
+        <header class="u-clearfix u-header" id="sec-74c7" th:fragment="base"><div class="u-clearfix u-sheet u-sheet-1">
+            <h3 class="u-align-center u-headline u-text u-text-1">
+                <a th:href="@{/welcome}">Bookstore</a>
+            </h3>
+            <div class="u-align-left u-border-1 u-border-grey-15 u-expanded-width u-line u-line-horizontal u-line-1"></div>
+            <nav class="u-align-left u-font-size-14 u-menu u-menu-dropdown u-offcanvas u-menu-1">
+                <div class="menu-collapse">
+                    <a class="u-button-style u-nav-link" th:href="@{#}">
+                        <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 302 302" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-622f"></use></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="svg-622f" x="0px" y="0px" viewBox="0 0 302 302" style="enable-background:new 0 0 302 302;" xml:space="preserve" class="u-svg-content"><g><rect y="36" width="302" height="30"></rect><rect y="236" width="302" height="30"></rect><rect y="136" width="302" height="30"></rect>
+                            </g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                    </a>
+                </div>
+                <div class="u-custom-menu u-nav-container">
+                    <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a th:href="@{/home}" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 44px;">Home</a>
+                        </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 44px;">Categories</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2">
+                                    <li class="u-nav-item"><a th:href="@{/category/Action}" class="u-button-style u-nav-link u-white">Action</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Adventure}" class="u-button-style u-nav-link u-white">Adventure</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Art}" class="u-button-style u-nav-link u-white">Art</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Biography}" class="u-button-style u-nav-link u-white">Biography</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Buildungsroman}" class="u-button-style u-nav-link u-white">Buildungsroman</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Children}" class="u-button-style u-nav-link u-white">Children</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Classic}" class="u-button-style u-nav-link u-white">Classic</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Drama}" class="u-button-style u-nav-link u-white">Drama</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Fantasy}" class="u-button-style u-nav-link u-white">Fantasy</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Fiction}" class="u-button-style u-nav-link u-white">Fiction</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/History}" class="u-button-style u-nav-link u-white">History</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Horror}" class="u-button-style u-nav-link u-white">Horror</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Romance}" class="u-button-style u-nav-link u-white">Romance</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Mystery}" class="u-button-style u-nav-link u-white">Mystery</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/NonFiction}" class="u-button-style u-nav-link u-white">Non-Fiction</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Philosophy}" class="u-button-style u-nav-link u-white">Philosophy</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Poetry}" class="u-button-style u-nav-link u-white">Poetry</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Prayer}" class="u-button-style u-nav-link u-white">Prayer</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Science}" class="u-button-style u-nav-link u-white">Science</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/SF}" class="u-button-style u-nav-link u-white">SF</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/Thriller}" class="u-button-style u-nav-link u-white">Thriller</a>
+                                    </li><li class="u-nav-item"><a th:href="@{/category/YA}" class="u-button-style u-nav-link u-white">YA</a>
+                                    </li></ul>
+                            </div>
+                        </li><li class="u-nav-item"><a th:href="@{/login}" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 44px;">My Account</a>
+                        </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 44px;">Shipping Cart</a>
+                        </li></ul>
+                </div>
+                <div class="u-custom-menu u-nav-container-collapse">
+                    <div class="u-align-center u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+                        <div class="u-sidenav-overflow">
+                            <div class="u-menu-close"></div>
+                            <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a th:href="@{/home}" class="u-button-style u-nav-link" style="padding: 10px 20px;">Home</a>
+                                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 44px;">Categories</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-4">
+                                            <li class="u-nav-item"><a th:href="@{/category/Action}" class="u-button-style u-nav-link">Action</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Adventure}" class="u-button-style u-nav-link">Adventure</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Art}" class="u-button-style u-nav-link">Art</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Biography}" class="u-button-style u-nav-link">Biography</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Buildungsroman}" class="u-button-style u-nav-link">Buildungsroman</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Children}" class="u-button-style u-nav-link">Children</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Classic}" class="u-button-style u-nav-link">Classic</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Drama}" class="u-button-style u-nav-link">Drama</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Fantasy}" class="u-button-style u-nav-link">Fantasy</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Fiction}" class="u-button-style u-nav-link">Fiction</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/History}" class="u-button-style u-nav-link">History</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Horror}" class="u-button-style u-nav-link">Horror</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Romance}" class="u-button-style u-nav-link">Romance</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Mystery}" class="u-button-style u-nav-link">Mystery</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/NonFiction}" class="u-button-style u-nav-link">Non-Fiction</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Philosophy}" class="u-button-style u-nav-link">Philosophy</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Poetry}" class="u-button-style u-nav-link">Poetry</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Prayer}" class="u-button-style u-nav-link">Prayer</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Science}" class="u-button-style u-nav-link">Science</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/SF}" class="u-button-style u-nav-link">SF</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/Thriller}" class="u-button-style u-nav-link">Thriller</a>
+                                            </li><li class="u-nav-item"><a th:href="@{/category/YA}" class="u-button-style u-nav-link">YA</a>
+                                            </li></ul>
+                                    </div>
+                                </li><li class="u-nav-item"><a th:href="@{/login}" class="u-button-style u-nav-link" style="padding: 10px 20px;">My Account</a>
+                                </li><li class="u-nav-item"><a class="u-button-style u-nav-link" style="padding: 10px 20px;">Shipping Cart</a>
+                                </li></ul>
+                        </div>
+                    </div>
+                    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+                </div>
+            </nav>
+            </div>
+        </header>
+    </body>
+</html>

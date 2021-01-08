@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="wrapper fadeInDown">
+    {% if error is defined %}
+        <h3 style="color: #adcce9">{{ error }}</h3>
+    {% endif %}
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <a href="{{ path('app_login') }}"> <h2  class="inactive">Sign In</h2> </a>
+            <a><h2  class="active underlineHover">Sign Up </h2></a>
+
+            <!-- Login Form -->
+            <form>
+                <input type="text" id="login" class="fadeIn second" name="username" placeholder="username" required>
+                <input type="text" id="login" class="fadeIn second" name="firstName" placeholder="First Name" required>
+                <input type="text" id="login" class="fadeIn second" name="lastName" placeholder="Last Name" required>
+                <input type="text" id="login" class="fadeIn second" name="adress" placeholder="Address" required>
+                <input type="text" id="login" class="fadeIn second" name="city" placeholder="City" required>
+                <input type="text" id="login" class="fadeIn second" name="country" placeholder="Country" required>
+                <input type="text" id="login" class="fadeIn second" name="phone" placeholder="phone" required>
+                <input type="text" id="login" class="fadeIn second" name="email" placeholder="email" required>
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
+                <input type="submit" class="fadeIn fourth" value="Register">
+            </form>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
