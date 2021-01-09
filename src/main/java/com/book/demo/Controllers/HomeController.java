@@ -24,7 +24,6 @@ public class HomeController {
 
     @RequestMapping("/home")
     public String homePage(Model model, HttpServletRequest request) {
-
         if (request.getSession().getAttribute("isLoggedIn") != null) {
             model.addAttribute("isLoggedIn", true);
         }

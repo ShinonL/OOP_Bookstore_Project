@@ -1,3 +1,39 @@
-<html>
-hei
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> My Account</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<header>
+    <div th:insert="/base::base_css"></div>
+    <div th:insert="/base::base"></div>
+</header>
+
+<section>
+    <div class="wrapper fadeInDown">
+
+
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Update Form -->
+                <form action="/submitUpdate" method="post" modelAttribute="userUpdate">
+                    <input type="text" id="username" class="fadeIn second" name="username" th:placeholder="${user.username}">
+                    <input type="text" id="firstname" class="fadeIn second" name="firstName" th:placeholder="${user.user.firstName}" >
+                    <input type="text" id="lastname" class="fadeIn second" name="lastName" th:placeholder="${user.user.lastName}" >
+                    <input type="text" id="address" class="fadeIn second" name="address" th:placeholder="${user.user.address}" >
+                    <input type="text" id="city" class="fadeIn second" name="city" th:placeholder="${user.city}" >
+                    <input type="text" id="country" class="fadeIn second" name="country" th:placeholder="${user.country}" >
+                    <input type="text" id="phone" class="fadeIn second" name="phone" th:placeholder="${user.user.phone}" >
+                    <input type="text" id="email" class="fadeIn second" name="email" th:placeholder="${user.user.email}" >
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" >
+                    <input type="submit" class="fadeIn fourth" value="Update">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
 </html>
