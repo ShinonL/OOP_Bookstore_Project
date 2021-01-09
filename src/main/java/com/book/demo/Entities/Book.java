@@ -2,6 +2,7 @@ package com.book.demo.Entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -135,4 +136,7 @@ public class Book {
     public void setBookGenresByIsbn(Collection<BookGenre> bookGenresByIsbn) {
         this.bookGenresByIsbn = bookGenresByIsbn;
     }
+
+
+
 }

@@ -21,7 +21,7 @@
                     <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
                         <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" th:src="${iter.current.coverImg}"><!--/product_image--><!--product_title-->
                         <h4 class="u-align-center u-product-control u-text u-text-1">
-                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.index}+${iter.current.title}"><!--product_title_content--><!--/product_title_content--></a>
+                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"><!--product_title_content--><!--/product_title_content--></a>
                         </h4><!--/product_title--><!--product_price-->
                         <div class="u-product-control u-product-price u-product-price-1">
                             <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
