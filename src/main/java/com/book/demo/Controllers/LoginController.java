@@ -1,6 +1,6 @@
 package com.book.demo.Controllers;
 
-import com.book.demo.DTO.LoggedUser;
+import com.book.demo.DTO.UserDTO;
 import com.book.demo.Entities.User;
 import com.book.demo.Repositories.UserRepository;
 import com.book.demo.Validators.UserValidator;
@@ -25,27 +25,20 @@ public class LoginController {
     }
 
     @PostMapping("/submitLogin")
-    public String submitLogin(HttpServletRequest request,Model model, @ModelAttribute("userLogin") LoggedUser loggedUser) {
+    public String submitLogin(HttpServletRequest request,Model model, @ModelAttribute("userLogin") UserDTO userDTO) {
+        User currentUser = UserValidator.userExistsInDataBase(userRepository, userDTO);
 
-        System.out.println(loggedUser.getUsername());
-        User currentUser = UserValidator.userExistsInDataBase(userRepository,loggedUser);
+        if(currentUser != null) {
+            userDTO.fromUserToUserDTO(currentUser);
 
-        if(currentUser!=null)
-        {
-            loggedUser.setUser(currentUser);
-            loggedUser.setCity(loggedUser.getUser().getCityByCityId().getName());
-            loggedUser.setCountry(loggedUser.getUser().getCityByCityId().getCountryByCountryId().getName());
+            request.getSession().setAttribute("isLoggedIn", true);
+            request.getSession().setAttribute("user", userDTO);
 
-            model.addAttribute("user",loggedUser);
-
-            request.getSession().setAttribute("isLoggedIn",loggedUser);
-
+            model.addAttribute("user", userDTO);
             model.addAttribute("isLoggedIn", true);
 
             return "myaccount/myaccount";
-        }
-        else
-        {
+        } else {
             String error = "Invalid username or password";
             model.addAttribute("error", error);
             return "myaccount/login";
@@ -55,23 +48,6 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         request.getSession().invalidate();
-        return "redirect:/home/home";
+        return "redirect:/login";
     }
-
-    @GetMapping("/myaccount")
-    public String myAccount(HttpServletRequest request,Model model)
-    {
-        System.out.println("User: "+ request.getSession().getAttribute("isLoggedIn"));
-        if(request.getSession().getAttribute("isLoggedIn")==null)
-        {
-            return "myaccount/login";
-        }
-        else
-        {
-            LoggedUser loggedUser = (LoggedUser)request.getSession().getAttribute("isLoggedIn");
-            model.addAttribute("user",loggedUser);
-            return "myaccount/myaccount";
-        }
-    }
-
 }

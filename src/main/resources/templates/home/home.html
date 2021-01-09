@@ -9,80 +9,82 @@
 
 </head>
 <body>
+    <!-- insert navigation bar -->
     <div th:insert="/base::base_css"></div>
     <div th:insert="/base::base"></div>
+
+    <!-- actual content -->
     <section class="u-align-center u-clearfix u-section-1" id="sec-e8e8">
-
-
-        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":4}--><!--/products_options_json-->
-            <div class="u-expanded-width u-products u-repeater u-repeater-1"><!--product_item-->
+        <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+            <div class="u-expanded-width u-products u-repeater u-repeater-1">
                 <div th:each="task,iter : ${books}">
+
+                    <!-- first column -->
                 <div th:if="${iter.index%4==0}" class="u-align-center u-container-style u-products-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
-                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" th:src="${iter.current.coverImg}"><!--/product_image--><!--product_title-->
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" th:src="${iter.current.coverImg}">
                         <h4 class="u-align-center u-product-control u-text u-text-1">
-                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"><!--product_title_content--><!--/product_title_content--></a>
-                        </h4><!--/product_title--><!--product_price-->
+                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"></a>
+                        </h4>
                         <div class="u-product-control u-product-price u-product-price-1">
-                            <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                                <div class="u-hide-price u-old-price"><!--product_old_price_content-->$12<!--/product_old_price_content--></div><!--/product_old_price--><!--product_regular_price-->
-                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"><!--product_regular_price_content--><!--/product_regular_price_content--></div><!--/product_regular_price-->
+                            <div class="u-price-wrapper u-spacing-10">
+                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"></div>
                             </div>
-                        </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
-                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-1"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
+                        </div>
+                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-1"> Details </a>
                     </div>
-                </div><!--/product_item--><!--product_item-->
-
-                <div th:if="${iter.index%4==1}" class="u-align-center u-container-style u-products-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><!--product_image-->
-                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" th:src="${iter.current.coverImg}"><!--/product_image--><!--product_title-->
-                        <h4 class="u-product-control u-text u-text-2">
-                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"><!--product_title_content--><!--/product_title_content--></a>
-                        </h4><!--/product_title--><!--product_price-->
-                        <div class="u-product-control u-product-price u-product-price-2">
-                            <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                                <div class="u-hide-price u-old-price"><!--product_old_price_content-->$12<!--/product_old_price_content--></div><!--/product_old_price--><!--product_regular_price-->
-                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"><!--product_regular_price_content--><!--/product_regular_price_content--></div><!--/product_regular_price-->
-                            </div>
-                        </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
-                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-2"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
-                    </div>
-                </div><!--/product_item--><!--product_item-->
-
-                <div  th:if="${iter.index%4==2}" class="u-align-center u-container-style u-products-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
-                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" th:src="${iter.current.coverImg}"><!--/product_image--><!--product_title-->
-                        <h4 class="u-product-control u-text u-text-3">
-                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"><!--product_title_content--><!--/product_title_content--></a>
-                        </h4><!--/product_title--><!--product_price-->
-                        <div class="u-product-control u-product-price u-product-price-3">
-                            <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                                <div class="u-hide-price u-old-price"><!--product_old_price_content-->$12<!--/product_old_price_content--></div><!--/product_old_price--><!--product_regular_price-->
-                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"><!--product_regular_price_content--><!--/product_regular_price_content--></div><!--/product_regular_price-->
-                            </div>
-                        </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
-                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-3"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
-                    </div>
-                </div><!--/product_item--><!--product_item-->
-
-                <div th:if="${iter.index%4==3}" class="u-align-center u-container-style u-products-item u-repeater-item">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4"><!--product_image-->
-                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-4" th:src="${iter.current.coverImg}"><!--/product_image--><!--product_title-->
-                        <h4 class="u-product-control u-text u-text-4">
-                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"><!--product_title_content--><!--/product_title_content--></a>
-                        </h4><!--/product_title--><!--product_price-->
-                        <div class="u-product-control u-product-price u-product-price-4">
-                            <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                                <div class="u-hide-price u-old-price"><!--product_old_price_content-->$12<!--/product_old_price_content--></div><!--/product_old_price--><!--product_regular_price-->
-                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"><!--product_regular_price_content--><!--/product_regular_price_content--></div><!--/product_regular_price-->
-                            </div>
-                        </div><!--/product_price--><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
-                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-4"><!--product_button_content-->Details<!--/product_button_content--></a><!--/product_button-->
-                    </div>
-                </div><!--/product_item-->
                 </div>
 
-            </div><!--/products-->
+                    <!-- second column -->
+                <div th:if="${iter.index%4==1}" class="u-align-center u-container-style u-products-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" th:src="${iter.current.coverImg}">
+                        <h4 class="u-product-control u-text u-text-2">
+                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"></a>
+                        </h4>
+                        <div class="u-product-control u-product-price u-product-price-2">
+                            <div class="u-price-wrapper u-spacing-10">
+                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"></div>
+                            </div>
+                        </div>
+                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-2"> Details </a>
+                    </div>
+                </div>
+
+                    <!-- third column -->
+                <div  th:if="${iter.index%4==2}" class="u-align-center u-container-style u-products-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" th:src="${iter.current.coverImg}">
+                        <h4 class="u-product-control u-text u-text-3">
+                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"></a>
+                        </h4>
+                        <div class="u-product-control u-product-price u-product-price-3">
+                            <div class="u-price-wrapper u-spacing-10">
+                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"></div>
+                            </div>
+                        </div>
+                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-3"> Details</a>
+                    </div>
+                </div>
+
+                    <!-- fourth column -->
+                <div th:if="${iter.index%4==3}" class="u-align-center u-container-style u-products-item u-repeater-item">
+                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+                        <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-4" th:src="${iter.current.coverImg}">
+                        <h4 class="u-product-control u-text u-text-4">
+                            <a class="u-product-title-link" th:href="@{'/home/'+${iter.current.isbn}}" th:text = "${iter.current.title}"></a>
+                        </h4>
+                        <div class="u-product-control u-product-price u-product-price-4">
+                            <div class="u-price-wrapper u-spacing-10">
+                                <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;" th:text = "${iter.current.price}+ ' Lei'"></div>
+                            </div>
+                        </div>
+                        <a th:href="@{'/home/'+${iter.current.isbn}}" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-4"> Details </a>
+                    </div>
+                </div>
+                </div>
+
+            </div>
 
     </div>
     </section>

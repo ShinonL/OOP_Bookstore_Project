@@ -4,20 +4,56 @@ import com.book.demo.Entities.User;
 
 import java.util.ArrayList;
 
-public class LoggedUser {
+public class UserDTO {
     private String username;
     private String password;
-    private User user;
     private String city;
     private String country;
+    private String email;
+    private String lastName;
+    private String firstName;
+    private String phone;
+    private String address;
     private ArrayList<BookDTO> shoppingBooks;
 
-    public User getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCity() {
@@ -74,4 +110,15 @@ public class LoggedUser {
         this.shoppingBooks.add(book);
     }
 
+    public void fromUserToUserDTO(User user) {
+        this.username = user.getUsername();
+        this.password = user.getPassword();
+        this.city = user.getCityByCityId().getName();
+        this.country = user.getCityByCityId().getCountryByCountryId().getName();
+        this.address = user.getAddress();
+        this.phone = user.getPhone();
+        this.email = user.getEmail();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+    }
 }

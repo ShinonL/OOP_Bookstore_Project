@@ -10,18 +10,23 @@
 </head>
 
 <body>
+<!-- insert navigation bar -->
 <div th:insert="/base::base_css"></div>
 <div th:insert="/base::base"></div>
+
+<!-- actual content -->
     <section class="u-clearfix u-section-1" id="carousel_cd30">
-        <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1"><!--product--><!--product_options_json--><!--{"source":""}--><!--/product_options_json--><!--product_item-->
+        <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
             <div class="u-container-style u-expanded-width u-product u-product-1">
-                <div class="u-container-layout u-container-layout-1"><!--product_image-->
-                    <img alt="" class="u-image u-image-default u-product-control u-image-1" th:src="${ book.coverImg }"><!--/product_image-->
+                <div class="u-container-layout u-container-layout-1">
+                    <img alt="" class="u-image u-image-default u-product-control u-image-1" th:src="${ book.coverImg }">
                     <div class="u-align-left u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1">
-                        <div class="u-container-layout u-container-layout-2"><!--product_title-->
+                        <div class="u-container-layout u-container-layout-2">
                             <h2 class="u-product-control u-text u-text-1">
-                                <a class="u-product-title-link" href="#" th:text = "${book.title}"><!--product_title_content--><!--/product_title_content--></a>
-                            </h2><!--/product_title-->
+                                <a class="u-product-title-link" href="#" th:text = "${book.title}"></a>
+                            </h2>
+
+                            <!-- details -->
                             <p class="u-small-text u-text u-text-font u-text-variant u-text-2">
                                 <div>Author:</div>
                                 <div th:each="task,iter : ${authors}">
@@ -44,18 +49,22 @@
                                 <br>
                             <div>Rating Number:</div>
                                 <div th:text="${book.ratingNumber}"></div>
-                            </p><!--product_price-->
+                            </p>
+
+                            <!-- price -->
                             <div class="u-product-control u-product-price u-product-price-1">
-                                <div class="u-price-wrapper u-spacing-10"><!--product_old_price-->
-                                    <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;" th:text = "${book.price}+' Lei'"><!--product_regular_price_content--><!--/product_regular_price_content--></div><!--/product_regular_price-->
+                                <div class="u-price-wrapper u-spacing-10">
+                                    <div class="u-price u-text-palette-2-base" style="font-size: 1.5rem; font-weight: 700;" th:text = "${book.price}+' Lei'"></div>
                                 </div>
-                            </div><!--/product_price-->
-                            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":""}--><!--/options_json-->
-                            <a href="https://nicepage.com/static-site-generator" class="u-black u-border-2 u-border-grey-75 u-btn u-button-style u-hover-grey-75 u-product-control u-btn-1"><!--product_button_content-->Add to Cart<!--/product_button_content--></a><!--/product_button-->
+                            </div>
+
+                            <!-- cart -->
+                            <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
+                            <a href="https://nicepage.com/static-site-generator" class="u-black u-border-2 u-border-grey-75 u-btn u-button-style u-hover-grey-75 u-product-control u-btn-1">Add to Cart</a>
                         </div>
                     </div>
                 </div>
-            </div><!--/product_item--><!--/product-->
+            </div>
         </div>
     </section>
 </body>
