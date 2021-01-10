@@ -15,6 +15,7 @@ public class UserDTO {
     private String phone;
     private String address;
     private ArrayList<BookDTO> shoppingBooks = new ArrayList<>();
+    private ShoppingCartStatus cartStatus;
 
     public String getEmail() {
         return email;
@@ -96,18 +97,15 @@ public class UserDTO {
         this.shoppingBooks = shoppingBooks;
     }
 
-    public void addBookToShoppingList(BookDTO book)
+    public void removeBookFromShoppingList(BookDTO book)
     {
-        for (BookDTO shoppingBook : this.shoppingBooks) {
-            if(shoppingBook.isbn.equals(book.isbn))
+        for (BookDTO shoppingBook : shoppingBooks) {
+            if(book.isbn.equals(shoppingBook.isbn))
             {
-                shoppingBook.ammount++;
-                return;
+                shoppingBooks.remove(shoppingBook);
+                break;
             }
         }
-
-        book.ammount = 1;
-        this.shoppingBooks.add(book);
     }
 
     public void fromUserToUserDTO(User user) {
@@ -120,5 +118,13 @@ public class UserDTO {
         this.email = user.getEmail();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
+    }
+
+    public ShoppingCartStatus getCartStatus() {
+        return cartStatus;
+    }
+
+    public void setCartStatus(ShoppingCartStatus cartStatus) {
+        this.cartStatus = cartStatus;
     }
 }

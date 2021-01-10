@@ -18,7 +18,7 @@
         <!-- prduct -->
         <article class="product">
             <header>
-                <a class="remove">
+                <a th:href="'/'+${iter.current.isbn}+'/removeFromCart'" class="remove">
                     <img th:src="${iter.current.coverImg}" alt="">
                     <h3>Remove product</h3>
                 </a>
@@ -29,11 +29,11 @@
             </div>
 
             <footer class="content">
-                <span class="qt-minus">-</span>
+                <a th:href="'/'+${iter.current.isbn}+'/minusBook'" class="qt-minus">-</a>
                 <span class="qt" th:text="${iter.current.ammount}"></span>
-                <span class="qt-plus">+</span>
+                <a th:href="'/'+${iter.current.isbn}+'/plusBook'" class="qt-plus">+</a>
 
-                <h2 class="full-price" th:text="${iter.current.price}+' Lei'"></h2>
+                <h2 class="full-price" th:text="${#numbers.formatDecimal(iter.current.price*iter.current.ammount, 0, 2)}+' Lei'"></h2>
             </footer>
         </article>
         <!-- end of product -->
@@ -43,7 +43,9 @@
 
 <footer id="site-footer">
     <div class="container clearfix">
-
+        <div class="u-align-center">
+            <h1 th:text = "${cart}"></h1>
+        </div>
         <div class="left">
             <h2 class="subtotal">Subtotal: <span th:text="${subtotal}+' Lei'"></span></h2>
             <h3 class="shipping">Shipping: <span>15.00</span>Lei</h3>
@@ -52,6 +54,8 @@
         <div class="right">
             <h1 class="total">Total: <span th:text="${total}+' Lei'"></span></h1>
             <a th:href="@{/checkout}" class="btn">Checkout</a>
+            <br>
+            <a th:href="@{/clearList}" class="btn">Clear List</a>
         </div>
 
     </div>
