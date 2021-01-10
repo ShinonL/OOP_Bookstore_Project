@@ -4,13 +4,18 @@
     <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
+<header>
+    <div th:insert="/base::base_css"></div>
+    <div th:insert="/base::base"></div>
+</header>
+
 <section>
     <div class="wrapper fadeInDown">
             <h3 th:if="${error}!=null" style="color: #adcce9" th:text = "${error}"></h3>
         <div id="formContent">
             <!-- Tabs Titles -->
-            <a> <h2 class="active"> Sign In </h2></a>
-            <a th:href="@{/register}"><h2 class="inactive underlineHover">Sign Up </h2></a>
+            <a> <h2 class="active1"> Sign In </h2></a>
+            <a th:href="@{/register}"><h2 class="inactive1 underlineHover1">Sign Up </h2></a>
 
             <!-- Login Form -->
             <form action="/submitLogin" method="post" modelAttribute="userLogin">
@@ -21,7 +26,7 @@
 
             <!-- Move to register page -->
             <div id="formFooter">
-                <a class="underlineHover" th:href="@{/register}">New User?</a>
+                <a class="underlineHover1" th:href="@{/register}">New User?</a>
             </div>
         </div>
     </div>

@@ -100,6 +100,7 @@ public class AccountController {
             currentUser.fromUserToUserDTO(user);
         }
 
+        request.getSession().setAttribute("user", currentUser);
         model.addAttribute("user", currentUser);
         model.addAttribute("isLoggedIn", true);
         model.addAttribute("error", error);
@@ -117,5 +118,18 @@ public class AccountController {
             model.addAttribute("user", userDTO);
             return "myaccount/myaccount";
         }
+    }
+
+    @RequestMapping("/deleteAccount")
+    public String delete(HttpServletRequest request, Model model, @ModelAttribute("userUpdate") UserDTO user) {
+        UserDTO currentUser = (UserDTO) request.getSession().getAttribute("user");
+        if(!user.getUsername().isEmpty()) {
+            model.addAttribute("error", "You must update before deleting. ");
+            model.addAttribute("user", currentUser);
+            return "myaccount/myaccount";
+        }
+
+        userRepository.deleteById(currentUser.getUsername());
+        return "redirect:/logout";
     }
 }

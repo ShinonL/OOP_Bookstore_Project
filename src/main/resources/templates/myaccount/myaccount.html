@@ -26,9 +26,9 @@
                     <input type="text" id="phone" class="fadeIn second" name="phone" th:placeholder="${user.phone}" >
                     <input type="text" id="email" class="fadeIn second" name="email" th:placeholder="${user.email}" >
                     <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" >
-                    <input type="submit" class="fadeIn fourth" value="Update">
+                    <input type="submit" class="fadeIn fourth" value="Update Account">
+                    <input type="submit" class="fadeIn fourth" formaction="/deleteAccount" value="Delete Account">
                 </form>
-
                 <form action="/logout" method="get"><input type="submit" class="fadeIn fourth" value="Log Out"></form>
             </div>
         </div>

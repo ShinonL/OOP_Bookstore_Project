@@ -69,11 +69,11 @@ h2 {
 
 /* TABS */
 
-h2.inactive {
+h2.inactive1 {
     color: #cccccc;
 }
 
-h2.active {
+h2.active1 {
     color: #0d0d0d;
     border-bottom: 2px solid #000000;
 }
@@ -233,7 +233,7 @@ input[type=password]:placeholder{
 }
 
 /* Simple CSS3 Fade-in Animation */
-.underlineHover:after {
+.underlineHover1:after {
     display: block;
     left: 0;
     bottom: -10px;
@@ -244,11 +244,11 @@ input[type=password]:placeholder{
     transition: width 0.2s;
 }
 
-.underlineHover:hover {
+.underlineHover1:hover {
     color: #000000;
 }
 
-.underlineHover:hover:after{
+.underlineHover1:hover:after{
     width: 100%;
 }
 
