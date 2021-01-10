@@ -1,0 +1,3 @@
+INSERT INTO bookstore.user (Username, Password, First_Name, Last_Name, Address, Phone, Email, City_ID) VALUES ('delgray', '678fe', 'Delaney', 'Gray', 'Str. Elm, Nr. 31', '2025550120', 'delGray1999@x-land.ro', 5);
+INSERT INTO bookstore.user (Username, Password, First_Name, Last_Name, Address, Phone, Email, City_ID) VALUES ('lauranadu', '1234', 'Laura', 'Nadu', 'Str. Caracal, Nr. 80', '0772033587', 'laura@x-land.ro', 1);
+INSERT INTO bookstore.user (Username, Password, First_Name, Last_Name, Address, Phone, Email, City_ID) VALUES ('tavi232', 'qwerty', 'Octavian', 'Matei', 'Str. Buzesti, Nr. 29', '0779617858', 'tavi123@text.email', 9);
