@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.DecimalFormat;
 
 @Controller
 public class ShoppingCartController {
@@ -110,7 +109,6 @@ public class ShoppingCartController {
             return "redirect:/login";
         }
 
-        BookDTO book = bookManager.transformToBookDTO(bookRepository.findBookByIsbn(isbn));
         UserDTO user = (UserDTO) request.getSession().getAttribute("user");
         for (BookDTO shoppingBook : user.getShoppingBooks()) {
             if(shoppingBook.isbn.equals(isbn))
@@ -135,7 +133,6 @@ public class ShoppingCartController {
             return "redirect:/login";
         }
 
-        BookDTO book = bookManager.transformToBookDTO(bookRepository.findBookByIsbn(isbn));
         UserDTO user = (UserDTO) request.getSession().getAttribute("user");
         for (BookDTO shoppingBook : user.getShoppingBooks()) {
             if(shoppingBook.isbn.equals(isbn))
