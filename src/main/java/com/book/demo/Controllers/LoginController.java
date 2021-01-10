@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginController {
-
     @Autowired
     UserRepository userRepository;
 

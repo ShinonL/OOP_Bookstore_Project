@@ -10,7 +10,7 @@
 </header>
 
 <div class="wrapper fadeInDown">
-    <!--h3 th:if="${error}!=null" style="color: #adcce9" th:text = "${error}"></h3-->
+    <h3 th:if="${error}!=null" style="color: #adcce9" th:text = "${error}"></h3>
     <div class="wrapper fadeInDown">
         <div id="formContent">
             <!-- Tabs Titles -->
@@ -18,11 +18,11 @@
             <a><h2  class="active underlineHover">Sign Up </h2></a>
 
             <!-- Login Form -->
-            <form>
+            <form action="/submitRegister" method="post" modelAttribute="userRegister">
                 <input type="text" class="fadeIn second" name="username" placeholder="username" required>
                 <input type="text" class="fadeIn second" name="firstName" placeholder="First Name" required>
                 <input type="text" class="fadeIn second" name="lastName" placeholder="Last Name" required>
-                <input type="text" class="fadeIn second" name="adress" placeholder="Address" required>
+                <input type="text" class="fadeIn second" name="address" placeholder="Address" required>
                 <input type="text" class="fadeIn second" name="city" placeholder="City" required>
                 <input type="text" class="fadeIn second" name="country" placeholder="Country" required>
                 <input type="text" class="fadeIn second" name="phone" placeholder="phone" required>
