@@ -1,7 +1,6 @@
 package com.book.demo.Controllers;
 
 import com.book.demo.DTO.BookDTO;
-import com.book.demo.Entities.Genre;
 import com.book.demo.Managers.BookManager;
 import com.book.demo.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;

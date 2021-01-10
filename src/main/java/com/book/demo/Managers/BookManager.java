@@ -5,14 +5,9 @@ import com.book.demo.DTO.BookDTO;
 import com.book.demo.DTO.GenreDTO;
 import com.book.demo.Entities.Book;
 import com.book.demo.Entities.BookGenre;
-import com.book.demo.Entities.Genre;
 import com.book.demo.Repositories.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class BookManager {
 

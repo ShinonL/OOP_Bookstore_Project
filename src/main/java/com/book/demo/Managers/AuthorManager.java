@@ -1,11 +1,8 @@
 package com.book.demo.Managers;
 
 import com.book.demo.DTO.AuthorDTO;
-import com.book.demo.DTO.BookDTO;
-import com.book.demo.Entities.Author;
 import com.book.demo.Entities.Book;
 import com.book.demo.Entities.BookAuthors;
-import com.book.demo.Repositories.AuthorRepository;
 
 import java.util.ArrayList;
 

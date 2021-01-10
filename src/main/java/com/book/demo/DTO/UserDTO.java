@@ -14,7 +14,7 @@ public class UserDTO {
     private String firstName;
     private String phone;
     private String address;
-    private ArrayList<BookDTO> shoppingBooks;
+    private ArrayList<BookDTO> shoppingBooks = new ArrayList<>();
 
     public String getEmail() {
         return email;

@@ -38,16 +38,16 @@
                                     <div th:text="${iter.current}+'  '"></div>
                                 </div>
                                  <br>
-                            <div>Publish Date:</div>
+                                <div>Publish Date:</div>
                                  <div th:text="${book.publishDate}"></div>
                                 <br>
-                            <div>ISBN:</div>
+                                <div>ISBN:</div>
                                 <div th:text="${book.isbn}"></div>
                                 <br>
-                            <div>Rating:</div>
+                                <div>Rating:</div>
                                 <div th:text="${book.rating}"></div>
                                 <br>
-                            <div>Rating Number:</div>
+                                <div>Rating Number:</div>
                                 <div th:text="${book.ratingNumber}"></div>
                             </p>
 
@@ -60,7 +60,7 @@
 
                             <!-- cart -->
                             <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
-                            <a href="https://nicepage.com/static-site-generator" class="u-black u-border-2 u-border-grey-75 u-btn u-button-style u-hover-grey-75 u-product-control u-btn-1">Add to Cart</a>
+                            <a th:href="'/'+${book.isbn}+'/addToCart'" class="u-black u-border-2 u-border-grey-75 u-btn u-button-style u-hover-grey-75 u-product-control u-btn-1">Add to Cart</a>
                         </div>
                     </div>
                 </div>

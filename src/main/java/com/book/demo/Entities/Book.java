@@ -2,9 +2,7 @@ package com.book.demo.Entities;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class Book {
@@ -103,20 +101,36 @@ public class Book {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Book book = (Book) o;
-        return quantity == book.quantity &&
-                Double.compare(book.price, price) == 0 &&
-                Double.compare(book.rating, rating) == 0 &&
-                reviewsNumber == book.reviewsNumber &&
-                Objects.equals(isbn, book.isbn) &&
-                Objects.equals(title, book.title) &&
-                Objects.equals(publishDate, book.publishDate) &&
-                Objects.equals(coverImage, book.coverImage);
+
+        if (quantity != book.quantity) return false;
+        if (Double.compare(book.price, price) != 0) return false;
+        if (Double.compare(book.rating, rating) != 0) return false;
+        if (reviewsNumber != book.reviewsNumber) return false;
+        if (isbn != null ? !isbn.equals(book.isbn) : book.isbn != null) return false;
+        if (title != null ? !title.equals(book.title) : book.title != null) return false;
+        if (publishDate != null ? !publishDate.equals(book.publishDate) : book.publishDate != null) return false;
+        if (coverImage != null ? !coverImage.equals(book.coverImage) : book.coverImage != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(isbn, title, publishDate, quantity, price, coverImage, rating, reviewsNumber);
+        int result;
+        long temp;
+        result = isbn != null ? isbn.hashCode() : 0;
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (publishDate != null ? publishDate.hashCode() : 0);
+        result = 31 * result + quantity;
+        temp = Double.doubleToLongBits(price);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (coverImage != null ? coverImage.hashCode() : 0);
+        temp = Double.doubleToLongBits(rating);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + reviewsNumber;
+        return result;
     }
 
     @OneToMany(mappedBy = "bookByIsbn")
@@ -136,7 +150,4 @@ public class Book {
     public void setBookGenresByIsbn(Collection<BookGenre> bookGenresByIsbn) {
         this.bookGenresByIsbn = bookGenresByIsbn;
     }
-
-
-
 }

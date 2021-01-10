@@ -2,7 +2,6 @@ package com.book.demo.Entities;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class Country {
@@ -34,14 +33,20 @@ public class Country {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Country country = (Country) o;
-        return id == country.id &&
-                Objects.equals(name, country.name);
+
+        if (id != country.id) return false;
+        if (name != null ? !name.equals(country.name) : country.name != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 
     @OneToMany(mappedBy = "countryByCountryId")

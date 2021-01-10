@@ -2,7 +2,6 @@ package com.book.demo.Entities;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class Genre {
@@ -34,14 +33,20 @@ public class Genre {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Genre genre1 = (Genre) o;
-        return id == genre1.id &&
-                Objects.equals(genre, genre1.genre);
+
+        if (id != genre1.id) return false;
+        if (genre != null ? !genre.equals(genre1.genre) : genre1.genre != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, genre);
+        int result = id;
+        result = 31 * result + (genre != null ? genre.hashCode() : 0);
+        return result;
     }
 
     @OneToMany(mappedBy = "genreByGenreId")

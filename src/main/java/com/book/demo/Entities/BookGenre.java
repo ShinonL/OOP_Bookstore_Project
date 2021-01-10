@@ -1,7 +1,6 @@
 package com.book.demo.Entities;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "book_genre", schema = "bookstore", catalog = "")
@@ -24,13 +23,17 @@ public class BookGenre {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         BookGenre bookGenre = (BookGenre) o;
-        return id == bookGenre.id;
+
+        if (id != bookGenre.id) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id;
     }
 
     @ManyToOne

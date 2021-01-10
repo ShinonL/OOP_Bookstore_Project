@@ -2,7 +2,6 @@ package com.book.demo.Entities;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Objects;
 
 @Entity
 public class City {
@@ -35,14 +34,20 @@ public class City {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         City city = (City) o;
-        return id == city.id &&
-                Objects.equals(name, city.name);
+
+        if (id != city.id) return false;
+        if (name != null ? !name.equals(city.name) : city.name != null) return false;
+
+        return true;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 
     @ManyToOne

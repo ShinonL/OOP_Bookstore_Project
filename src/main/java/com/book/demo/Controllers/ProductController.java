@@ -2,11 +2,10 @@ package com.book.demo.Controllers;
 
 import com.book.demo.DTO.AuthorDTO;
 import com.book.demo.DTO.BookDTO;
-import com.book.demo.DTO.GenreDTO;
+import com.book.demo.DTO.UserDTO;
 import com.book.demo.Entities.Book;
 import com.book.demo.Managers.AuthorManager;
 import com.book.demo.Managers.BookManager;
-import com.book.demo.Repositories.AuthorRepository;
 import com.book.demo.Repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -31,13 +29,13 @@ public class ProductController {
 
     @GetMapping("/{isbn}")
     public String productPage(Model model, HttpServletRequest request, @PathVariable("isbn") String isbn_product) {
+        Optional<Book> myBook = bookRepository.findById(isbn_product);
+        BookDTO dtoBook = bookManager.transformToBookDTO(myBook.get());
 
         if (request.getSession().getAttribute("isLoggedIn") != null) {
             model.addAttribute("isLoggedIn", true);
+            request.getSession().setAttribute("book", dtoBook);
         }
-
-        Optional<Book> myBook = bookRepository.findById(isbn_product);
-        BookDTO dtoBook = bookManager.transformToBookDTO(myBook.get());
 
         ArrayList<AuthorDTO> dtoAuthors =authorManager.getBookAuthorsNames(myBook.get());
         ArrayList<String> dtoGenres = bookManager.getBookGenreString(myBook.get());
@@ -48,4 +46,5 @@ public class ProductController {
 
         return "product/product";
     }
+
 }
